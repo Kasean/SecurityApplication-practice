@@ -1,3 +1,5 @@
 /.idea/
 /first/.gradle/
 /first/build/
+/secret_providers/.gradle/
+/secret_providers/build/
