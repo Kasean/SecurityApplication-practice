@@ -1,7 +1,14 @@
 version: '3.8'
 
 services:
-  postgres:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  postgres_mvc_security:
     image: postgres:latest
     container_name: postgres_db
     environment:
@@ -9,9 +16,22 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: P@55w0rd
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_mvc:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 
+  postgres_secret_provider:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: P@55w0rd
+      POSTGRES_DB: secret_providers_usersDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_secret:/var/lib/postgresql/data
+
 volumes:
-  postgres_data:
+  postgres_data_mvc:
+  postgres_data_secret:
+  redis-data:
