@@ -58,7 +58,7 @@ databaseChangeLog:
                     value: user@example.com
                 - column:
                     name: password
-                    value: $2a$10$7.5uO0IpHI7RxPh1Shsng.6jTcUmMK4l0B0YQYUgiSAEaGyCz8EhK
+                    value: $2a$10$7.5uO0IpHI7RxPh1Shsng.6jTcUmMK4l0B0YQYUgiSAEaGyCz8EhK #user_password - raw password
           - insert:
               tableName: user_roles
               columns:
@@ -79,7 +79,7 @@ databaseChangeLog:
                     value: admin@example.com
                 - column:
                     name: password
-                    value: $2a$10$xd74oIkYVcnaEFL3WtVtT./Y3CvA4rzAa9hToF2tfPo/r943Oz0SS
+                    value: $2a$10$xd74oIkYVcnaEFL3WtVtT./Y3CvA4rzAa9hToF2tfPo/r943Oz0SS #admin_password - raw password
           - insert:
               tableName: user_roles
               columns:
@@ -100,7 +100,7 @@ databaseChangeLog:
                     value: super_user@example.com
                 - column:
                     name: password
-                    value: $2a$10$FAgQ5D4hhNF0AJwQwuSzZuc5wG7nXe8.U1FhPYQ8OCKfWlULPteae
+                    value: $2a$10$FAgQ5D4hhNF0AJwQwuSzZuc5wG7nXe8.U1FhPYQ8OCKfWlULPteae #superuser_password - raw password
           - insert:
               tableName: user_roles
               columns:
