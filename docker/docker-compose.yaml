@@ -10,7 +10,7 @@ services:
 
   postgres_mvc_security:
     image: postgres:latest
-    container_name: postgres_db
+    container_name: postgres_mvc_security
     environment:
       POSTGRES_DB: usersDB
       POSTGRES_USER: postgres
@@ -22,6 +22,7 @@ services:
 
   postgres_secret_provider:
     image: postgres:latest
+    container_name: postgres_secret_provider
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: P@55w0rd
