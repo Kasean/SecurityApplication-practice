@@ -1,0 +1,121 @@
+databaseChangeLog:
+    - changeSet:
+        id: 1
+        author: Kasean
+        changes:
+          - createTable:
+              tableName: users
+              columns:
+                - column:
+                    name: id
+                    type: uuid
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: email
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                      unique: true
+                - column:
+                    name: password
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+          - createTable:
+              tableName: user_roles
+              columns:
+                - column:
+                    name: user_id
+                    type: uuid
+                    constraints:
+                      nullable: false
+                - column:
+                    name: role
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+          - addForeignKeyConstraint:
+              constraintName: fk_user_roles_users
+              baseTableName: user_roles
+              baseColumnNames: user_id
+              referencedTableName: users
+              referencedColumnNames: id
+
+    - changeSet:
+        id: 2
+        author: Kasean
+        changes:
+          - insert:
+              tableName: users
+              columns:
+                - column:
+                    name: id
+                    value: f47ac10b-58cc-4372-a567-0e02b2c3d479
+                - column:
+                    name: email
+                    value: user@example.com
+                - column:
+                    name: password
+                    value: $2a$10$7.5uO0IpHI7RxPh1Shsng.6jTcUmMK4l0B0YQYUgiSAEaGyCz8EhK #user_password - raw password
+          - insert:
+              tableName: user_roles
+              columns:
+                - column:
+                    name: user_id
+                    value: f47ac10b-58cc-4372-a567-0e02b2c3d479
+                - column:
+                    name: role
+                    value: VIEW_INFO
+          - insert:
+              tableName: users
+              columns:
+                - column:
+                    name: id
+                    value: e47ac10b-58cc-4372-a567-0e02b2c3d480
+                - column:
+                    name: email
+                    value: admin@example.com
+                - column:
+                    name: password
+                    value: $2a$10$xd74oIkYVcnaEFL3WtVtT./Y3CvA4rzAa9hToF2tfPo/r943Oz0SS #admin_password - raw password
+          - insert:
+              tableName: user_roles
+              columns:
+                - column:
+                    name: user_id
+                    value: e47ac10b-58cc-4372-a567-0e02b2c3d480
+                - column:
+                    name: role
+                    value: VIEW_ADMIN
+          - insert:
+              tableName: users
+              columns:
+                - column:
+                    name: id
+                    value: d47ac10b-58cc-4372-a567-0e02b2c3d481
+                - column:
+                    name: email
+                    value: super_user@example.com
+                - column:
+                    name: password
+                    value: $2a$10$FAgQ5D4hhNF0AJwQwuSzZuc5wG7nXe8.U1FhPYQ8OCKfWlULPteae #superuser_password - raw password
+          - insert:
+              tableName: user_roles
+              columns:
+                - column:
+                    name: user_id
+                    value: d47ac10b-58cc-4372-a567-0e02b2c3d481
+                - column:
+                    name: role
+                    value: VIEW_INFO
+          - insert:
+              tableName: user_roles
+              columns:
+                - column:
+                    name: user_id
+                    value: d47ac10b-58cc-4372-a567-0e02b2c3d481
+                - column:
+                    name: role
+                    value: VIEW_ADMIN
