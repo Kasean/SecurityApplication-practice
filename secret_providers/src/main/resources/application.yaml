@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/secret_providers_usersDB
+    username: postgres
+    password: P@55w0rd
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    change-log: classpath:db.changelog/db.changelog-1.0.yaml
+  redis:
+    host: localhost
+    port: 6379
